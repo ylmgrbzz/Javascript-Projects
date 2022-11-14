@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<button id="sag">Sağ</button>
+	<button id="sol">Sol</button>
+	<button id="yukari">Yukarı</button>
+	<button id="asagi">Aşağı</button>
+	<button id="saldir" style="background-color:red;color:white;">SALDIR</button>
+	<span>
+		Poketop Konumu:<span id="loc1"></span>
+		<span id="loc2"></span>
+	</span>
+
+	<span>
+		Pikachu Konumu:<span id="loc3"></span>
+		<span id="loc4"></span>
+	</span>
+
+	<div id="kutu" style="width:80px;height:80px;;position:absolute;">
+		<img width="100%" src="https://down.imgspng.com/download/0720/pokemon_PNG9.png">
+	</div>
+	<div id="poketop" style="top:400px;left:400px;position:absolute;">
+		<img width="100px" src="https://www.pngall.com/wp-content/uploads/4/Pokemon-Pokeball-Transparent.png">
+	</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+	$(function(){
+
+
+		$("#sag").click(function(){
+			$("#kutu").animate({
+				left:"+=50px"
+
+			});
+			pokeloc();
+		});
+
+		$("#sol").click(function(){
+			$("#kutu").animate({
+				left:"-=50px"
+
+			});
+			pokeloc();
+		});
+
+
+		$("#yukari").click(function(){
+			$("#kutu").animate({
+				top:"-=50px"
+
+			});
+			pokeloc();
+		});
+
+
+		$("#asagi").click(function(){
+			$("#kutu").animate({
+				top:"+=50px"
+
+			});
+			pokeloc();
+		});
+
+		$("#saldir").mouseover(function(){
+			$("#kutu img").attr("src","https://i.pinimg.com/originals/61/8c/0a/618c0afae0ec776928c9bc1e1dafa269.png");
+			$("#kutu").attr({width:"320px",height:"320px"});
+			$("body").css("background-color","yellow");
+
+		});
+
+		$("#saldir").mouseout(function(){
+			$("#kutu img").attr("src","https://down.imgspng.com/download/0720/pokemon_PNG9.png");
+			$("#kutu").attr({width:"80px",height:"80px"});
+			$("body").css("background-color","white");
+
+		});
+
+		// Poketop konumu
+		
+		var konum=$("#poketop").position();
+		$("#loc1").text(konum.top);
+		$("#loc2").text(konum.left);
+
+
+		function pokeloc(){
+
+			var yer=$("#kutu").position();
+			$("#loc3").text(yer.top);
+			$("#loc4").text(yer.left);
+
+			if(yer.top=="429"){
+				if(yer.left=="458"){
+					alert("Tebrikler Aşama Tamamlandı")
+				}
+			}
+
+		}
+
+		
+
+
+
+
+
+	})
+</script>
+
+</body>
+</html>
